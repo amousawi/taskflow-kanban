@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TaskFlow Kanban</title>
+  <link rel="stylesheet" href="./src/styles/base.css" />
+</head>
+<div id="modal" class="modal hidden">
+  <div class="modal-content">
+    <button class="close-modal">✖</button>
+    <div class="modal-body"></div>
+  </div>
+</div>
+
+<body>
+  <header>
+    <h1>TaskFlow</h1>
+    <div class="toolbar">
+      <input id="searchInput" type="search" placeholder="Search cards..." aria-label="Search cards" />
+      <input id="labelInput" type="text" placeholder="Filter by label (e.g. bug)" aria-label="Filter by label" />
+      <label class="chk">
+        <input id="overdueOnly" type="checkbox" />
+        <span>Overdue only</span>
+      </label>
+    </div>
+    <button id="exportBtn">⬇️ Export</button>
+    <button id="importBtn">⬆️ Import</button>
+    <input type="file" id="importFile" accept="application/json" style="display:none" />
+    <button id="themeToggle" aria-pressed="false">🌗</button>
+  </header>
+
+  <main class="board">
+    <!-- Backlog -->
+    <section class="list" id="backlog">
+      <h2>Backlog</h2>
+      <div class="cards"></div>
+      <div class="add-card">
+        <button class="show-form">+ Add card</button>
+        <form class="add-card-form hidden">
+          <input type="text" name="title" placeholder="Card title" required />
+          <input type="text" name="labels" placeholder="Labels (comma-separated)" />
+          <input type="date" name="due" />
+          <button type="submit">Add</button>
+          <button type="button" class="cancel">Cancel</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- In Progress -->
+    <section class="list" id="inprogress">
+      <h2>In Progress</h2>
+      <div class="cards"></div>
+      <div class="add-card">
+        <button class="show-form">+ Add card</button>
+        <form class="add-card-form hidden">
+          <input type="text" name="title" placeholder="Card title" required />
+          <input type="text" name="labels" placeholder="Labels (comma-separated)" />
+          <input type="date" name="due" />
+          <button type="submit">Add</button>
+          <button type="button" class="cancel">Cancel</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Done -->
+    <section class="list" id="done">
+      <h2>Done</h2>
+      <div class="cards"></div>
+      <div class="add-card">
+        <button class="show-form">+ Add card</button>
+        <form class="add-card-form hidden">
+          <input type="text" name="title" placeholder="Card title" required />
+          <input type="text" name="labels" placeholder="Labels (comma-separated)" />
+          <input type="date" name="due" />
+          <button type="submit">Add</button>
+          <button type="button" class="cancel">Cancel</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="./src/js/app.js"></script>
+</body>
+</html>
+
